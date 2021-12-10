@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="detalles_factura" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1c964af8-6136-4858-abbd-d32ed8b14151">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MYSQL-CONNECTOR"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="factura" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT fact.productos.iva,
+	fact.productos.nombre,
+	fact.productos.id_producto,
+	fact.detalles_facturacion.facturacion_id_facturacion,
+	fact.detalles_facturacion.cantidad,
+	fact.detalles_facturacion.productos_id_producto,
+	fact.detalles_facturacion.precio,
+	if(fact.productos.iva = 'EXENTA', fact.detalles_facturacion.cantidad * fact.detalles_facturacion.precio, ' ' ) as exenta,
+	if(fact.productos.iva = '5', fact.detalles_facturacion.cantidad * fact.detalles_facturacion.precio, ' ' ) as cinco,
+	if(fact.productos.iva = '10', fact.detalles_facturacion.cantidad * fact.detalles_facturacion.precio, ' ' ) as diez
+FROM fact.detalles_facturacion
+	INNER JOIN fact.productos ON 
+	 fact.detalles_facturacion.productos_id_producto = fact.productos.id_producto
+	 WHERE fact.detalles_facturacion.facturacion_id_facturacion = $P{factura} ]]>
+	</queryString>
+	<field name="iva" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="iva"/>
+		<property name="com.jaspersoft.studio.field.label" value="iva"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="productos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="productos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_producto" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id_producto"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_producto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="productos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="facturacion_id_facturacion" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="facturacion_id_facturacion"/>
+		<property name="com.jaspersoft.studio.field.label" value="facturacion_id_facturacion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalles_facturacion"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidad" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="cantidad"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidad"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalles_facturacion"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="productos_id_producto" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="productos_id_producto"/>
+		<property name="com.jaspersoft.studio.field.label" value="productos_id_producto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalles_facturacion"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precio" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="precio"/>
+		<property name="com.jaspersoft.studio.field.label" value="precio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalles_facturacion"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="exenta" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="exenta"/>
+		<property name="com.jaspersoft.studio.field.label" value="exenta"/>
+	</field>
+	<field name="cinco" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cinco"/>
+		<property name="com.jaspersoft.studio.field.label" value="cinco"/>
+	</field>
+	<field name="diez" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="diez"/>
+		<property name="com.jaspersoft.studio.field.label" value="diez"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="70" height="30" uuid="6ea0571b-cac8-4abd-b917-7ad5adafb72c"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="0" width="190" height="30" uuid="b80145e3-679e-45d0-ba66-c2d2982874e8"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="80" height="30" uuid="fcc7179f-dc5e-4fd9-9fc1-9aff7f2beb70"/>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="70" height="30" uuid="09b359d2-456e-462a-bad3-817bd00c9c2c"/>
+				<textFieldExpression><![CDATA[$F{cinco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="80" height="30" uuid="a281374f-d369-4c99-b0fa-9c0e2f7273be"/>
+				<textFieldExpression><![CDATA[$F{exenta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="0" width="70" height="30" uuid="e34c7f43-3fcf-40fc-8462-47f1ae24b43b"/>
+				<textFieldExpression><![CDATA[$F{diez}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
