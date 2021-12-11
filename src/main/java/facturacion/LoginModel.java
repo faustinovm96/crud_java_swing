@@ -1,7 +1,7 @@
 package facturacion;
 
 
-import facturacion.controladores.MenuControlador;
+import facturacion.controladores.MenuController;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Faustino
  */
-public class ModeloLogin {
+public class LoginModel {
     private String usuario;
     private String clave;
     
@@ -22,7 +22,7 @@ public class ModeloLogin {
     
     VistaLogin vistaLogin;
 
-    public ModeloLogin(VistaLogin vistaLogin) {
+    public LoginModel(VistaLogin vistaLogin) {
         this.vistaLogin = vistaLogin;
     }
     
@@ -56,8 +56,8 @@ public class ModeloLogin {
                 JOptionPane.showMessageDialog(vistaLogin, "DATOS INCORRECTOS");
             }else if(rs.getString("estado").equals("A")){
                 VistaMenuPrincipal vistaMenu = new VistaMenuPrincipal();
-                ModeloMenu modeloMenu = new ModeloMenu(vistaMenu);
-                MenuControlador c = new MenuControlador(vistaMenu, modeloMenu);
+                MenuModel modeloMenu = new MenuModel(vistaMenu);
+                MenuController c = new MenuController(vistaMenu, modeloMenu);
                 vistaMenu.txtIdUsuario.setText(rs.getString("id_usuario"));
                 vistaMenu.txtUsuario.setText(rs.getString("nombre"));
                 modeloMenu.controlPrivilegios();
@@ -68,7 +68,7 @@ public class ModeloLogin {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloLogin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginModel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

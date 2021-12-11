@@ -7,7 +7,7 @@ package facturacion;
  */
 
 
-import facturacion.ModeloFactura;
+import facturacion.FacturaModel;
 import facturacion.VistaFactura;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,12 +19,12 @@ import javax.swing.JOptionPane;
  *
  * @author F996
  */
-public class ControladorFactura implements ActionListener, KeyListener{
+public class FacturaController implements ActionListener, KeyListener{
     
     VistaFactura vista;
-    ModeloFactura modelo;
+    FacturaModel modelo;
 
-    public ControladorFactura(VistaFactura vista, ModeloFactura modelo) {
+    public FacturaController(VistaFactura vista, FacturaModel modelo) {
         this.vista = vista;
         this.modelo = modelo;
         vista.btnNuevo.addActionListener(this);

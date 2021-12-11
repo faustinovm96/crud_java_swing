@@ -1,6 +1,6 @@
 package facturacion;
 
-import facturacion.controladores.LoginControlador;
+import facturacion.controladores.LoginController;
 
 
 /**
@@ -10,8 +10,8 @@ import facturacion.controladores.LoginControlador;
 public class Arranque {
     public static void main(String[] args) {
         VistaLogin vistaLogin = new VistaLogin();
-        ModeloLogin modeloLogin = new ModeloLogin(vistaLogin);
-        LoginControlador controladro = new LoginControlador(vistaLogin, modeloLogin);
+        LoginModel modeloLogin = new LoginModel(vistaLogin);
+        LoginController controladro = new LoginController(vistaLogin, modeloLogin);
         vistaLogin.setLocationRelativeTo(null);
         vistaLogin.setVisible(true);
     }

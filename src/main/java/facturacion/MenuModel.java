@@ -11,12 +11,12 @@ import java.util.logging.Logger;
  *
  * @author Faustino
  */
-public class ModeloMenu {
+public class MenuModel {
     VistaMenuPrincipal vista;
     Statement st;
     ResultSet rs;
 
-    public ModeloMenu(VistaMenuPrincipal vista) {
+    public MenuModel(VistaMenuPrincipal vista) {
         this.vista = vista;
     }
     
@@ -45,7 +45,7 @@ public class ModeloMenu {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloMenu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MenuModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

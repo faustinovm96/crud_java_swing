@@ -24,7 +24,7 @@ import net.sf.jasperreports.view.JasperViewer;
  *
  * @author F996
  */
-public class ModeloFactura {
+public class FacturaModel {
 
     private String id;
     private String codigoCliente;
@@ -43,7 +43,7 @@ public class ModeloFactura {
     Statement st;
     ResultSet rs;
 
-    public ModeloFactura(VistaFactura vista) {
+    public FacturaModel(VistaFactura vista) {
         this.vista = vista;
     }
 
@@ -190,7 +190,7 @@ public class ModeloFactura {
             rs.close();
         } catch (SQLException ex) {
             System.out.println("ERROR");
-            Logger.getLogger(ModeloFactura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacturaModel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -214,7 +214,7 @@ public class ModeloFactura {
             rs.close();
 
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloFactura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacturaModel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -258,7 +258,7 @@ public class ModeloFactura {
             st.close();
 
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloFactura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacturaModel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -318,7 +318,7 @@ public class ModeloFactura {
             rs.close();
             vista.tablaDetallesProductos.setModel(modeloTablaDetalleFactura);
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloFactura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacturaModel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -374,7 +374,7 @@ public class ModeloFactura {
             st.close();
             rs.close();
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloFactura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacturaModel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -392,7 +392,7 @@ public class ModeloFactura {
             
             JOptionPane.showMessageDialog(null, "CABECERA GUARDADA");
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloFactura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacturaModel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -412,7 +412,7 @@ public class ModeloFactura {
                 st.executeUpdate(sql);
                 st.close();
             } catch (SQLException ex) {
-                Logger.getLogger(ModeloFactura.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FacturaModel.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         }
@@ -433,7 +433,7 @@ public class ModeloFactura {
                 st.executeUpdate(sql);
                 st.close();
             } catch (SQLException ex) {
-                Logger.getLogger(ModeloFactura.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FacturaModel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -451,7 +451,7 @@ public class ModeloFactura {
                 st.executeUpdate(sql);
                 st.close();
             } catch (SQLException ex) {
-                Logger.getLogger(ModeloFactura.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FacturaModel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -519,7 +519,7 @@ public class ModeloFactura {
             st.close();
             
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloFactura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacturaModel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -583,7 +583,7 @@ public class ModeloFactura {
             rs.close();
             st.close();
         } catch (SQLException ex) {
-            Logger.getLogger(ModeloFactura.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacturaModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         totales();
@@ -600,7 +600,7 @@ public class ModeloFactura {
                 st.executeUpdate(sql);
                 st.close();
             } catch (SQLException ex) {
-                Logger.getLogger(ModeloFactura.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FacturaModel.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             //aumentar stock

@@ -1,7 +1,7 @@
 package facturacion.controladores;
 
 
-import facturacion.ModeloLogin;
+import facturacion.LoginModel;
 import facturacion.VistaLogin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,11 +16,11 @@ import java.awt.event.ActionListener;
  *
  * @author Faustino
  */
-public class LoginControlador implements ActionListener{
+public class LoginController implements ActionListener{
     VistaLogin vistaLogin;
-    ModeloLogin modelo;
+    LoginModel modelo;
 
-    public LoginControlador(VistaLogin vista, ModeloLogin modelo) {
+    public LoginController(VistaLogin vista, LoginModel modelo) {
         this.vistaLogin = vista;
         this.modelo = modelo;
         vista.btnIniciarSesion.addActionListener(this);
